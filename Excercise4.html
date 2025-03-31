@@ -1,91 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game</title>
-</head>
-<style>
-  body{
-   background-color: rgb(240, 240, 240);
-  }
- 
-  button{
-   font-size: 20px;
-    border-radius: 7px;
+  <body class="game">
+    <div>
+        <button onclick="playerMove('Rock')">Rock</button>
+        
+        <button onclick="playerMove('Paper')"> Paper</button>
 
-  }
-  .game{
-    margin-left: 90vh;
-     margin-top: 20vh;
-  }
-</style>
-
-<body class="game">
- 
-  <div>
+      <button
+        onclick=" playerMove()"> Scissor</button>
+    </div>
     <script>
-      let result = '';
-      const computerInput = Math.random();
-      let system = '';
-    </script>
-
-    <button onclick="
-       
-         if(computerInput >= 0 && computerInput < 1/3){
-                 system='Rock';
-         }else if(computerInput >=1/3 && computerInput < 2/3){
-           system='Paper';
-         } else if(computerInput >= 2/3 && computerInput < 1 ){
-            system='Scissor';
-         }
-          if(system === 'Rock'){
-            result='Tie';
-          }else if(system === 'Paper'){
-            result='Computer Won';
-          }else if(system==='Scissor'){
-            result='You Won';
+      function playerMove(playerType) {
+        pickComputer();
+        if (system === "Rock") {
+          if (system === "Rock") {
+            result = "Tie";
+          } else if (system === "Paper") {
+            result = "Computer Won";
+          } else if (system === "Scissor") {
+            result = "You Won";
           }
-          alert(`You picked Rock and Computer Choice ${system} so ${result}`)
-         ">Rock</button>
-    <button onclick="
-       if(computerInput >= 0 && computerInput < 1/3){
-                 system='Rock';
-         }else if(computerInput >=1/3 && computerInput < 2/3){
-           system='Paper';
-         } else if(computerInput >= 2/3 && computerInput < 1 ){
-            system='Scissor';
-         }
-   
-       if(system === 'Paper'){
-         result='Tie ';
-       }else if(system === 'Rock'){
-         result='You Won ';
-       }else if(system==='Scissor'){
-         result='Computer Won';
-       }
-       alert(`You picked Paper and Computer Choice ${system} so ${result}`)
-      ">Paper</button>
 
-    <button onclick="
-    if(computerInput >= 0 && computerInput < 1/3){
-                 system='Rock';
-         }else if(computerInput >=1/3 && computerInput < 2/3){
-           system='Paper';
-         } else if(computerInput >= 2/3 && computerInput < 1 ){
-            system='Scissor';
-         }
+          alert(
+            `You picked ${playerType} and Computer picked ${system} so ${result}`
+          );
+        }
+        if(system ==='Paper'){
+          if(system === 'Paper'){
+          result='Tie ';
+        }else if(system === 'Rock'){
+          result='You Won ';
+        }else if(system==='Scissor'){
+          result='Computer Won';
+        }
+        alert(
+            `You picked ${playerType} and Computer Choice ${system} so ${result}`
+          );
+        }
+        if(system==='Scissor'){
+          if(system === 'Scissor'){
+        result='Tie ';
+      }else if(system === 'Rock'){
+        result='Computer Won';
+      }else if(system==='Paper'){
+        result='You Won';
+      }
+      alert(`You picked Scissor and Computer Choice ${system} so ${result}`)
+        }
+      }
 
-    if(system === 'Scissor'){
-      result='Tie ';
-    }else if(system === 'Rock'){
-      result='Computer Won';
-    }else if(system==='Paper'){
-      result='You Won';
-    }
-    alert(`You picked Scissor and Computer Choice ${system} so ${result}`)">Scissor</button>
-  </div>
-</body>
+      let result = "";
+      const computerInput = Math.random();
+      let system = "";
 
+      function pickComputer() {
+        if (computerInput >= 0 && computerInput < 1 / 3) {
+          system = "Rock";
+        } else if (computerInput >= 1 / 3 && computerInput < 2 / 3) {
+          system = "Paper";
+        } else if (computerInput >= 2 / 3 && computerInput < 1) {
+          system = "Scissor";
+        }
+        return computerInput;
+      }
+    </script>
+  </body>
 </html>
